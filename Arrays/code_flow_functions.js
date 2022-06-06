@@ -31,7 +31,7 @@ console.log();
 //      -5
 //      5
 
-// Function to check for a panindrome
+// Function to check for a palindrome (keeps track of 2 indexes)
 function isPal(arr) {
     for (var left = 0; left < arr.length / 2; left++) {
         var right = arr.length - 1 - left;
@@ -49,3 +49,37 @@ console.log(result1);
 var result2 = isPal([3, 2, 1, 1, 2, 3]);
 console.log(result2);
 // result will be Pal-indrome!
+
+// ALternate palindrome check code (exits loop when false)
+function palindromeCheck(checkString) {
+    length = checkString.length;
+    for (i = 0; i < length / 2; i++) {
+        console.log(checkString[i], checkString[length - 1 - i]); // logs letters that have been checked
+        if (checkString[i] !== checkString[length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(palindromeCheck("prettysurethisisnotapalendrome"));
+// result will be p e false
+console.log(palindromeCheck("kayak"));
+// result will be k k a a y y true
+console.log();
+
+// ALternate palindrome check code (loops backwards)
+function isPalindrome(howABoutThisString) {
+    length = howABoutThisString.length;
+    for (i = length - 1; i >= 0; i--) {
+        console.log(howABoutThisString[i], howABoutThisString[length - 1 - i]);
+        if (howABoutThisString[i] !== howABoutThisString[length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPalindrome("mother"));
+// result will be r m false
+console.log(isPalindrome("mom"));
+// result will be m m o o m m true

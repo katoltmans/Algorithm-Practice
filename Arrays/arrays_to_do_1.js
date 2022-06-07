@@ -19,8 +19,10 @@ const popFront = (arr) => {
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
     }
+    temp = arr[arr.length - 1];
     arr.pop();
-    return arr;
+    console.log(arr);
+    return temp;
 };
 
 console.log(popFront([0, 5, 10, 15])); //output: [ 5, 10, 15 ]
@@ -38,5 +40,25 @@ const insertAt = (arr, O, val) => {
     return arr;
 };
 
-console.log(insertAt([100, 200, 5], 2, 311)); //output: [ 100, 200, 311, 5 ]
-console.log(insertAt([9, 33, 7], 1, 42)); //output: [ 9, 42, 33, 7 ]
+console.log(insertAt([100, 200, 5], 2, 311)); //console.log: [ 5, 10, 15 ], output:  0
+console.log(insertAt([9, 33, 7], 1, 42)); //console.log: [ 9, 42, 33, 7 ],  output: 4
+console.log();
+
+// Remove At
+const removeAt = (arr, O) => {
+    for (var i = O; i < arr.length - 1; i++) {
+        var temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+    }
+    temp = arr[arr.length - 1];
+    arr.pop();
+    console.log(arr);
+    return temp;
+};
+
+console.log(removeAt([1000, 3, 204, 77], 1)); //console.log: [ 1000, 204, 77 ], output:  3
+console.log(removeAt([8, 20, 55, 44, 98], 3)); //console.log: [ 8, 20, 55, 98 ], output:  44
+console.log();
+
+//Swap Pairs

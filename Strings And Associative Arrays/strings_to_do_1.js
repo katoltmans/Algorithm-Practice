@@ -33,3 +33,16 @@ console.log(getDigits("0s1a3y5w7h9a2t4?6!8?0")); //output: 01357924680
 console.log();
 
 // Acronyms
+const acronym = (str) => {
+    wordArr = str.split(" ");
+    newArr = [];
+    for (var i = 0; i < wordArr.length; i++) {
+        letArr = wordArr[i].split("");
+        newArr.push(letArr[0]);
+    }
+    newStr = newArr.join("").toUpperCase();
+    return newStr;
+};
+
+console.log(acronym(" there's no free lunch - gotta pay yer way. "));
+console.log(acronym("Live from New York, it's Saturday Night!"));

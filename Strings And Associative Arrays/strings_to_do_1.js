@@ -1,13 +1,13 @@
 // Remove Blanks
 const removeBlanks = (str) => {
-    letterArr = str.split("");
-    newArr = [];
+    let letterArr = str.split("");
+    let newArr = [];
     for (var i = 0; i < letterArr.length; i++) {
         if (letterArr[i] !== " ") {
             newArr.push(letterArr[i]);
         }
     }
-    newStr = newArr.join("");
+    let newStr = newArr.join("");
     return newStr;
 };
 
@@ -17,14 +17,14 @@ console.log();
 
 // Get Digits
 const getDigits = (str) => {
-    letArr = str.split("");
-    newArr = [];
+    let letArr = str.split("");
+    let newArr = [];
     for (var i = 0; i < letArr.length; i++) {
         if (!isNaN(letArr[i])) {
             newArr.push(letArr[i]);
         }
     }
-    newStr = newArr.join("");
+    let newStr = newArr.join("");
     return newStr;
 };
 
@@ -34,15 +34,55 @@ console.log();
 
 // Acronyms
 const acronym = (str) => {
-    wordArr = str.split(" ");
-    newArr = [];
-    for (var i = 0; i < wordArr.length; i++) {
-        letArr = wordArr[i].split("");
+    let arr = str.split(" ");
+    let newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        letArr = arr[i].split("");
         newArr.push(letArr[0]);
     }
-    newStr = newArr.join("").toUpperCase();
+    let newStr = newArr.join("").toUpperCase();
     return newStr;
 };
 
-console.log(acronym(" there's no free lunch - gotta pay yer way. "));
-console.log(acronym("Live from New York, it's Saturday Night!"));
+console.log(acronym(" there's no free lunch - gotta pay yer way. ")); //output: TNFL-GPYW
+console.log(acronym("Live from New York, it's Saturday Night!")); //output: LFNYISN
+console.log();
+
+// Count Non-Spaces
+const countNonSpaces = (str) => {
+    let letArr = str.split("");
+    let count = 0;
+    for (var i = 0; i < letArr.length; i++) {
+        if (letArr[i] !== " ") {
+            count++;
+        }
+    }
+    return count;
+};
+
+console.log(countNonSpaces("Honey pie, you are driving me crazy")); //output: 29
+console.log(countNonSpaces("Hello world !")); //output: 11
+console.log();
+
+// Remove Shorter Strings
+const removeShorterStrings = (arr, num) => {
+    let newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].length >= num) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+};
+
+console.log(
+    removeShorterStrings(
+        ["Good morning", "sunshine", "the", "Earth", "says", "hello"],
+        4
+    )
+);
+//output: [ 'Good morning', 'sunshine', 'Earth', 'says', 'hello' ]
+console.log(
+    removeShorterStrings(["There", "is", "a", "bug", "in", "the", "system"], 3)
+);
+//output: [ 'There', 'bug', 'the', 'system' ]

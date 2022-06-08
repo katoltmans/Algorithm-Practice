@@ -62,3 +62,30 @@ console.log(removeAt([8, 20, 55, 44, 98], 3)); //console.log: [ 8, 20, 55, 98 ],
 console.log();
 
 //Swap Pairs
+const swapPairs = (arr) => {
+    for (var i = 0; i < arr.length - 1; i++) {
+        temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        i += 1;
+    }
+    return arr;
+};
+
+console.log(swapPairs([1, 2, 3, 4])); //output: [ 2, 1, 4, 3 ]
+console.log(swapPairs(["Brendan", true, 42])); //output: [ true, 'Brendan', 42 ]
+console.log();
+
+// Remove Duplicates
+const removeDupes = (arr) => {
+    newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] != arr[i + 1]) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+};
+
+console.log(removeDupes([-2, -2, 3.14, 5, 5, 10])); //output: [ -2, 3.14, 5, 10 ]
+console.log(removeDupes([9, 19, 19, 19, 19, 19, 29])); //output: [ 9, 19, 29 ]

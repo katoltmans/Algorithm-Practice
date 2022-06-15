@@ -40,6 +40,15 @@ class SLL {
         let newNode = new Node(value);
         newNode.next = this.head;
         this.head = newNode;
+        console.log(this.head);
+
+        return this.head;
+    }
+
+    // Method to remove the head node
+    removeFront() {
+        this.head = this.head.next;
+        console.log(this.head);
 
         return this.head;
     }
@@ -66,6 +75,12 @@ console.log();
 
 console.log("Add Front");
 SLL1 = new SLL();
-console.log(SLL1.addFront(18)); //Returns: Node { data: 18, next: null }
-console.log(SLL1.addFront(5)); //Returns: Node { data: 5, next: Node { data: 18, next: null } }
-console.log(SLL1.addFront(73)); //Returns: Node {data: 73, next: Node { data: 5, next: Node { data: 18, next: null } }}
+SLL1.addFront(18); //Returns: Node { data: 18, next: null }
+SLL1.addFront(5); //Returns: Node { data: 5, next: Node { data: 18, next: null } }
+SLL1.addFront(73); //Returns: Node {data: 73, next: Node { data: 5, next: Node { data: 18, next: null } }}
+console.log();
+
+console.log("Remove Front");
+SLL1.removeFront(); //Returns: Node { data: 5, next: Node { data: 18, next: null } }
+SLL1.removeFront(); //Returns: Node { data: 18, next: null }
+console.log();

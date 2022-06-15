@@ -36,22 +36,36 @@ class SLL {
     // }
 
     // Method to add a node to the front of a singly linked list
-    addFront(value) {}
+    addFront(value) {
+        let newNode = new Node(value);
+        newNode.next = this.head;
+        this.head = newNode;
+
+        return this.head;
+    }
 
     // Method to return the value of the head of the list
 }
 
-let SLL1 = new SLL();
+let SLLTest = new SLL();
 
 let node1 = new Node(4);
 let node2 = new Node(5);
 let node3 = new Node(6);
 
-SLL1.head = node1;
+SLLTest.head = node1;
 
 node1.next = node2;
 
 node2.next = node3;
 
-console.log(SLL1);
-console.log(SLL1.length()); //way to get to node 3   SLL.head.next.next.next.data would return 6 (the data of node 3)
+console.log("Length Method");
+console.log(SLLTest);
+console.log(SLLTest.length()); //way to get to node 3   SLL.head.next.next.next.data would return 6 (the data of node 3)
+console.log();
+
+console.log("Add Front");
+SLL1 = new SLL();
+console.log(SLL1.addFront(18)); //Returns: Node { data: 18, next: null }
+console.log(SLL1.addFront(5)); //Returns: Node { data: 5, next: Node { data: 18, next: null } }
+console.log(SLL1.addFront(73)); //Returns: Node {data: 73, next: Node { data: 5, next: Node { data: 18, next: null } }}

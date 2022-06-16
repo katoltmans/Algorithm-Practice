@@ -14,7 +14,6 @@ class LinkedList {
         let newNode = new Node(value);
         newNode.next = this.head;
         this.head = newNode;
-        console.log(this.head);
 
         return this.head;
     }
@@ -54,17 +53,38 @@ class LinkedList {
         console.log(valueIsPresent);
         return valueIsPresent;
     }
+
+    //Method to find the length of a singly linked list
+    length() {
+        let runner = this.head;
+        if (this.head == 0) {
+            return 0;
+        }
+        let count = 1;
+        while (runner.next) {
+            count++;
+            runner = runner.next;
+        }
+        console.log(count);
+        return count;
+    }
 }
 
 SLLNew = new LinkedList();
+
 SLLNew.addFront(7);
 SLLNew.addFront(17);
 SLLNew.addFront(77);
 SLLNew.addFront(111);
 
+console.log("Find Sum");
 console.log(SLLNew.findSum());
+console.log();
 
+console.log("Contains");
 SLLNew.contains(17);
 SLLNew.contains(42);
+console.log();
 
-SLLNew.findSum();
+console.log("Length");
+SLLNew.length();

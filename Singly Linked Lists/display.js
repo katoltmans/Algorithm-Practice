@@ -21,10 +21,10 @@ class LinkedList {
 
     // Method to display the nodes in a singly linked list
     display() {
-        let dataDisplay = "";
+        let dataDisplay = " ";
         let runner = this.head;
         while (runner != null) {
-            dataDisplay += ", " + str(this.data);
+            dataDisplay = dataDisplay + ", " + runner.data;
             runner = runner.next;
         }
         console.log(dataDisplay);
@@ -36,6 +36,11 @@ SLLNew = new LinkedList();
 
 SLLNew.addFront(76);
 SLLNew.addFront(2);
+console.log();
+
 SLLNew.display();
+console.log();
 SLLNew.addFront(11.41);
+console.log();
+
 SLLNew.display();

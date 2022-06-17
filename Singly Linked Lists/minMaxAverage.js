@@ -25,9 +25,9 @@ class LinkedList {
         let runner = this.head;
         while (runner !== null) {
             if (runner.data > temp) {
-                temp = runner;
-                runner = runner.next;
+                temp = runner.data;
             }
+            runner = runner.next;
         }
         console.log(temp);
         return temp;
@@ -35,13 +35,13 @@ class LinkedList {
 
     // Method to locate the min value in a singly linked list
     min() {
-        let temp = 900000000000000;
+        let temp = this.head.data;
         let runner = this.head;
         while (runner !== null) {
             if (runner.data < temp) {
-                temp = runner;
-                runner = runner.next;
+                temp = runner.data;
             }
+            runner = runner.next;
         }
         console.log(temp);
         return temp;
@@ -70,6 +70,7 @@ SLLNew.addFront(21);
 SLLNew.addFront(1000);
 SLLNew.addFront(-7);
 SLLNew.addFront(-14);
+console.log();
 
 console.log("Max value");
 SLLNew.max();

@@ -21,7 +21,7 @@ class LinkedList {
 
     // Method to display the nodes in a singly linked list
     display() {
-        let dataDisplay = " ";
+        let dataDisplay = "";
         let runner = this.head;
         while (runner != null) {
             dataDisplay = dataDisplay + ", " + runner.data;

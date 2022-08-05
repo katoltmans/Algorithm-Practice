@@ -95,3 +95,57 @@ console.log("Nth to Last");
 console.log(nthToLast([5, 2, 3, 6, 4, 9, 7], 3));
 console.log(nthToLast([1, 2, 3], 4));
 console.log();
+
+// Nth-Largest
+
+const nthLargest = (arr, num) => {
+    let left = [];
+    let right = [];
+    let pivot = arr.pop();
+
+    if (arr[num] === undefined) {
+        return null;
+    }
+
+    // Quicksort algprithm help: https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-1.php
+    const quickSort = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] <= pivot) {
+                left.push(arr[i]);
+            } else;
+            {
+                right.push(arr[i]);
+            }
+        }
+        newArr.concat(quickSort(left), pivot, quickSort(right));
+    };
+
+    return arr[arr.length - num];
+};
+
+console.log("Nth Largest");
+console.log(nthLargest([5, 2, 3, 6, 4, 9, 7], 3));
+console.log(nthLargest([1, 2, 3], 4));
+console.log();
+
+// Skyline Heights
+
+const skylineHeights = (arr) => {
+    let tallest = 0;
+    let visible = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > tallest) {
+            visible.push(arr[i]);
+            tallest = arr[i];
+        }
+    }
+    return visible;
+};
+
+console.log("Skyline Heights");
+console.log(skylineHeights([-1, 7, 3]));
+console.log(skylineHeights([-1, 1, 1, 7, 3]));
+console.log(skylineHeights([0, 4]));
+console.log(skylineHeights([2, 1, 7, 3]));
+console.log();

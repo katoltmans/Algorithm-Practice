@@ -64,26 +64,59 @@ console.log();
 
 {
     /*
+    Seats in Theater
 
-
+    Your friend advised you to see a new performance in the most popular theater in the city. He knows a lot about art and his advice is usually good, but not this time: 
+    the performance turned out to be awfully dull. It's so bad you want to sneak out, which is quite simple, especially since the exit is located right behind your row to 
+    the left. All you need to do is climb over your seat and make your way to the exit.
+    The main problem is your shyness: you're afraid that you'll end up blocking the view (even if only for a couple of seconds) of all the people who sit behind you and 
+    in your column or the columns to your left. To gain some courage, you decide to calculate the number of such people and see if you can possibly make it to the exit 
+    without disturbing too many people.
+    Given the total number of rows and columns in the theater (nRows and nCols, respectively), and the row and column you're sitting in, 
+    return the number of people who sit strictly behind you and in your column or to the left, assuming all seats are occupied.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function numDisturbed(nCols, nRows, col, row) {
+    let result = (nCols - (col - 1)) * (nRows - row);
+    return result;
+}
+
+console.log("Seats in Theater");
+console.log(numDisturbed(16, 11, 5, 3)); //expect 96
+console.log(numDisturbed(1000, 1000, 1000, 1000)); //expect 0
 console.log();
 
 {
     /*
+    Max Multiple
 
-
+    Given a divisor and a bound, find the largest integer N such that:
+        N is divisible by divisor.
+        N is less than or equal to bound.
+        N is greater than 0.
+    It is guaranteed that such a number exists.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function maxMultiple(divisor, bound) {
+    let result = divisor;
+    let i = divisor;
+
+    while (i <= bound) {
+        if (i % divisor === 0) {
+            result = i;
+        }
+        i++;
+        // console.log("RESULT", result);
+    }
+
+    return result;
+}
+
+console.log("Max Multiple");
+console.log(maxMultiple(3, 10)); //expect 9
+console.log(maxMultiple(7, 100)); //expect 98
 console.log();
 
 {

@@ -149,24 +149,81 @@ console.log();
 
 {
     /*
+    Late Ride
 
-
+    One night you go for a ride on your motorcycle. At 00:00 you start your engine, and the built-in timer automatically begins counting the length of your ride, 
+    in minutes. Off you go to explore the neighborhood.
+    When you finally decide to head back, you realize there's a chance the bridges on your route home are up, leaving you stranded! Unfortunately, 
+    you don't have your watch on you and don't know what time it is. All you know thanks to the bike's timer is that n minutes have passed since 00:00.
+    Using the bike's timer, calculate the current time. Return an answer as the sum of digits that the digital timer in the format hh:mm would show.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function rideTimeSum(n) {
+    // Calculate minutes with %60
+    // Calculate hours using Math.floor
+    // Stringify hours and minutes and then iterate through, summing parseInt digits of the string
+    let hours = n % 60;
+    let minutes = Math.floor(n / 60);
+    let timeString = "" + hours + minutes;
+
+    // console.log("TIMESTRING:", timeString);
+
+    let result = 0;
+
+    for (let i = 0; i < timeString.length; i++) {
+        result += parseInt(timeString[i]);
+    }
+
+    return result;
+}
+
+console.log("Late Ride");
+console.log(rideTimeSum(240)); //expect 4 (0 + 4 + 0 + 0 = 4)
+console.log(rideTimeSum(1439)); //expect 19 (5 + 9 + 2 + 3 = 19)
 console.log();
 
 {
     /*
+    Phone Call
 
-
+    Some phone usage rate may be described as follows:
+        first minute of a call costs min1 cents,
+        each minute from the 2nd up to 10th (inclusive) costs min2_10 cents
+        each minute after 10th costs min11 cents.
+    You have s cents on your account before the call. What is the duration of the longest call (in minutes rounded down to the nearest integer) you can have?
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function calculateCallTime(min1, min2_10, min11, s) {
+    let callTime = 0;
+
+    if (s < min1) {
+        return 0;
+    } else {
+        callTime += 1;
+        s -= min1;
+    }
+
+    for (let i = 2; i <= 10; i++) {
+        if (s - min2_10 > 0) {
+            callTime += 1;
+            s -= min2_10;
+        } else {
+            return callTime;
+        }
+    }
+
+    while (s - min11 >= 0) {
+        callTime += 1;
+        s -= min11;
+    }
+
+    return callTime;
+}
+
+console.log("Phone Call");
+console.log(calculateCallTime(3, 1, 2, 20)); //expect 14
+console.log(calculateCallTime(10, 10, 10, 8)); //expect 0
+console.log(calculateCallTime(10, 1, 2, 22)); //expect 11
 console.log();

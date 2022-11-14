@@ -121,14 +121,30 @@ console.log();
 
 {
     /*
+    Circle of Numbers
 
-
+    Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighboring numbers is equal 
+    (note that 0 and n - 1 are neighboring, too).
+    Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function circleOfNums(n, firstNumber) {
+    // If result is larger than n, subtract n
+    // If result = n, return 0
+    let distance = (n + 1) / 2;
+    let result = Math.floor(firstNumber + distance);
+
+    if (result >= n) {
+        result -= n;
+    }
+
+    return result;
+}
+
+console.log("Circle of Numbers");
+console.log(circleOfNums(10, 2)); //expect 7 (directly across from 2)
+console.log(circleOfNums(18, 5)); //expect 14
 console.log();
 
 {

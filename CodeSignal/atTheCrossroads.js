@@ -26,13 +26,34 @@ console.log();
 
 {
     /*
-    
+    Knapsack Light
+
+    You found two items in a treasure chest! The first item weighs weight1 and is worth value1, and the second item weighs weight2 and is worth value2. 
+    What is the total maximum value of the items you can take with you, assuming that your max weight capacity is maxW and you can't come back for 
+    the items later?
+    Note that there are only two items and you can't bring more than one item of each type, i.e. you can't take two first items or two second items.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function maxTreasure(value1, weight1, value2, weight2, maxW) {
+    let result = 0;
+
+    if (weight1 + weight2 <= maxW) {
+        result = value1 + value2;
+    } else if (weight1 <= maxW && weight2 <= maxW) {
+        value1 > value2 ? (result = value1) : (result = value2);
+    } else if (weight1 <= maxW && weight2 > maxW) {
+        result = value1;
+    } else if (weight2 <= maxW && weight1 > maxW) {
+        result = value2;
+    }
+
+    return result;
+}
+
+console.log("Knapsack Light");
+console.log(maxTreasure(10, 5, 6, 4, 8)); //expect 10
+console.log(maxTreasure(3, 5, 3, 8, 10)); //expect 3
 console.log();
 
 {

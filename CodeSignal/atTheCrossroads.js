@@ -58,13 +58,28 @@ console.log();
 
 {
     /*
-    
+    Extra Number
+
+    You're given three integers, a, b and c. It is guaranteed that two of these integers are equal to each other. What is the value of the third integer?
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function thirdInteger(a, b, c) {
+    let thirdInteger = 0;
+
+    if (a === b) {
+        thirdInteger = c;
+    } else if (b === c) {
+        thirdInteger = a;
+    } else {
+        thirdInteger = b;
+    }
+    return thirdInteger;
+}
+
+console.log("Extra Number");
+console.log(thirdInteger(2, 7, 2)); //expect 7
+console.log(thirdInteger(469992838, 66019520, 66019520)); //expect 469992838
 console.log();
 
 {

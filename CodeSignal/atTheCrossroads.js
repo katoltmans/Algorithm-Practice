@@ -115,13 +115,24 @@ console.log();
 
 {
     /*
-    
+    Arithmetic Expression
+
+    Consider an arithmetic expression of the form a#b=c. Check whether it is possible to replace # with one of the four signs: +, -, * or / to obtain a correct expression.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function possibleOperator(a, b, c) {
+    let isPossible = false;
+
+    if (a + b === c || a - b === c || a * b === c || a / b === c) {
+        isPossible = true;
+    }
+    return isPossible;
+}
+
+console.log("Arithmetic Expression");
+console.log(possibleOperator(2, 3, 5)); //expect true
+console.log(possibleOperator(5, 2, 2)); //expect false
 console.log();
 
 {

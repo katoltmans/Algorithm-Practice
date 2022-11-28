@@ -55,13 +55,30 @@ console.log();
 
 {
     /*
-    
+    Range Bit Count
+
+    You are given two numbers a and b where 0 ≤ a ≤ b. Imagine you construct an array of all the integers from a to b inclusive. 
+    You need to count the number of 1s in the binary representations of all the numbers in the array.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function numOnes(a, b) {
+    // Convert each number to bit form
+    // Count number of ones in binary representation and add to total coount
+
+    let onesCount = 0;
+
+    for (let i = a; i <= b; i++) {
+        let numCount = i.toString(2).split("1").length - 1;
+        // console.log("I:", i, "NUMBER:", i.toString(2), "ONES:", numCount);
+        onesCount += numCount;
+    }
+    return onesCount;
+}
+
+console.log("Range Bit Count");
+console.log(numOnes(2, 7)); //expect 11
+console.log(numOnes(1, 10)); //expect 17
 console.log();
 
 {

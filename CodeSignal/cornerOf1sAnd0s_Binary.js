@@ -83,13 +83,39 @@ console.log();
 
 {
     /*
-    
+    Mirror Bits
+
+    Reverse the order of the bits in a given integer.
+
+    Example:
+
+    For a = 97, the output should be
+    solution(a) = 67.
+
+    97 equals to 1100001 in binary, which is 1000011 after mirroring, and that is 67 in base 10.
+
+    For a = 8, the output should be
+    solution(a) = 1.
     */
 }
 
-console.log("");
-console.log(); //expect
-console.log(); //expect
+function mirrorBits(a) {
+    // Convert integer to bits
+    // reverse the string and reconvert to an integer
+
+    let numStr = a.toString(2);
+    // console.log("A:", a, "BINARY:", numStr);
+
+    // console.log("REVERSE:", numStr.split("").reverse().join(""), "NEW NUM:", parseInt(numStr.split("").reverse().join(""), 2));
+
+    // console.log(parseInt("1000011", 2));
+
+    return parseInt(numStr.split("").reverse().join(""), 2);
+}
+
+console.log("Mirror Bits");
+console.log(mirrorBits(97)); //expect 67
+console.log(mirrorBits(5)); //expect 5
 console.log();
 
 {
